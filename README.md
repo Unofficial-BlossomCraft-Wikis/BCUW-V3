@@ -8,7 +8,7 @@ You can either make an issue or make a pull request
 <!-- *  -->
 
 ### what to do
-[Go Here](https://github.com/Unofficial-BlossomCraft-Wikis/unofficial-blossomcraft-item-wiki/issues/new/choose)/Go to the `issues` tab in github
+[Go Here](https://github.com/Unofficial-BlossomCraft-Wikis/BCUW/issues/new/choose)/Go to the `issues` tab in github
 
 ## Making a pull request
 ### Requirements
@@ -51,7 +51,7 @@ You may either:
 
 #### Developing using GitHub Codespaces
 
-1. **Create a new codespace** via https://codespaces.new/Unofficial-BlossomCraft-Wikis/unofficial-blossomcraft-item-wiki
+1. **Create a new codespace** via https://codespaces.new/Unofficial-BlossomCraft-Wikis/BCUW
 
 2. pass the `--host` flag to avoid “502 Bad Gateway” errors:
 
@@ -73,4 +73,4 @@ npm run dev
 
 You should then be able to open <http://localhost:4321> and see your changes.
 
-[sl]: https://github.com/Unofficial-BlossomCraft-Wikis/unofficial-blossomcraft-item-wiki/pulls
+[sl]: https://github.com/Unofficial-BlossomCraft-Wikis/BCUW/pulls
