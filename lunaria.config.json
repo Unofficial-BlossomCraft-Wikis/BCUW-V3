@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/@lunariajs/core/config.schema.json",
+  "repository": {
+    "name": "Unofficial-BlossomCraft-Wikis/BCUW"
+  },
+  "files": [
+    {
+      "location": "src/content/docs/**/*.{md,mdx}",
+      "pattern": "src/content/docs/@lang/@path",
+      "type": "universal"
+    }
+  ],
+  "dashboard": {
+    "title": "BCUW Localization Status",
+    "description": "Localization status dashboard for the BCUW project.",
+    "favicon": {
+      "inline": "./src/assets/favicon.png"
+    }
+  }
+}
