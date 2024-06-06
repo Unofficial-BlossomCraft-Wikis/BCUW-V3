@@ -10,6 +10,4 @@ const { crate, item, alt } = Astro.props;
 const path = `https://cdn.bcuw.xyz/3D/${crate}/${item}.gltf`;
 ---
 
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" is:inline></script>
-
 <model-viewer alt={alt} src={path} shadow-intensity="1" autoplay="" camera-controls="" touch-action="pan-y" style="width: 100%; height: 500px;" camera-orbit="90deg 55deg 4m" ar-status="not-presenting"></model-viewer>

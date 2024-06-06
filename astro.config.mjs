@@ -47,7 +47,15 @@ export default defineConfig({
           link: '/starter/discordresources/'
         }
 			],
-    }, {
+    },
+    {
+      label: 'Crates',
+			collapsed: true,
+      items: [
+        {label: 'Season', collapsed: true, autogenerate: { directory: '/crates/season' }},
+      ]
+    },
+    {
 			label: 'Contributing',
 			collapsed: true,
 			items: [
@@ -69,7 +77,16 @@ export default defineConfig({
 					link: '/usefulthings/cdn/'
 				},
 			],
-    }]
+    }],
+    head: [
+      {
+        tag: 'script',
+        attrs: {
+          src: 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js',
+          type: 'module',
+        },
+      },
+    ],
   }), 
 	webmanifest({
 		name: 'BCUW',
