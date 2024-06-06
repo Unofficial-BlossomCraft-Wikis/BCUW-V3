@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import lunaria from '@lunariajs/starlight';
 import webmanifest from "astro-webmanifest";
 
 export const locales = {
@@ -10,7 +9,7 @@ export const locales = {
   }
 };
 
-const site = "https://bcuw.dovahkiin.xyz";
+const site = "https://bcuw.xyz";
 
 // https://astro.build/config
 export default defineConfig({
@@ -52,8 +51,6 @@ export default defineConfig({
 		theme_color: '#E16FD6',
 		background_color: '#E16FD6',
 		display: 'standalone',
-	}),lunaria({
-		sync: true,
 	}),],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   image: {
