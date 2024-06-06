@@ -3,10 +3,8 @@ import starlight from '@astrojs/starlight';
 import webmanifest from "astro-webmanifest";
 
 export const locales = {
-  root: {
-    label: 'English',
-    lang: 'en'
-  }
+  root: { label: 'English', lang: 'en' },
+	es: { label: 'Español', lang: 'es' },
 };
 
 const site = "https://bcuw.xyz";
@@ -15,6 +13,7 @@ const site = "https://bcuw.xyz";
 export default defineConfig({
   site,
   integrations: [starlight({
+    credits: true,
     favicon: 'favicon.png',
     title: 'UBCW',
     social: {
@@ -36,8 +35,25 @@ export default defineConfig({
 			collapsed: true,
 			items: [
 				{
-					label: "We're migrating to WikiDot",
+					label: "Why and What?",
 					link: '/starter/home/'
+				},
+        {
+          label: "Resources",
+          link: '/starter/resources/'
+        },
+        {
+          label: "Discord Resources",
+          link: '/starter/discordresources/'
+        }
+			],
+    }, {
+			label: 'Contributing',
+			collapsed: true,
+			items: [
+				{
+					label: "How to contribute",
+					link: '/contributing/home/'
 				},
 			],
     }]
