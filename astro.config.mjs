@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [starlight({
     credits: true,
     favicon: 'favicon.png',
-    title: 'UBCW',
+    title: 'BCUW',
     social: {
       github: 'https://github.com/Unofficial-BlossomCraft-Wikis/BCUW'
     },
