@@ -23,8 +23,8 @@ export default defineConfig({
       baseUrl: 'https://github.com/Unofficial-BlossomCraft-Wikis/BCUW/edit/main/'
     },
     customCss: [
-    // Relative path to your @font-face CSS file.
-    './src/fonts/fonts.css', './src/styles/main.css'],
+    './src/styles/main.css',
+    ],
     logo: {
       src: './src/assets/favicon.png'
     },
@@ -54,6 +54,19 @@ export default defineConfig({
 				{
 					label: "How to contribute",
 					link: '/contributing/home/'
+				},
+        {
+          label: "i18n Tracker",
+          link: '/contributing/i18n/'
+        },
+			],
+    }, {
+			label: 'Usefull things',
+			collapsed: true,
+			items: [
+				{
+					label: "CDN",
+					link: '/usefulthings/cdn/'
 				},
 			],
     }]

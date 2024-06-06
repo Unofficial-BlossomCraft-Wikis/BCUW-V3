@@ -1,10 +1,8 @@
 :root,
 ::backdrop{
-  --__sl-font-mono: 'Minecraft Font';
   --sl-color-accent-high: #E16FD6;
 }
 :root[data-theme='light'],
 [data-theme='light'] ::backdrop {
-  --__sl-font-mono: 'Minecraft Font';
   --sl-color-accent: #c561bb;
 }
