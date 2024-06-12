@@ -60,6 +60,11 @@ export default defineConfig({
       ]
     },
     {
+      label: 'Items', 
+      collapsed: true, 
+      autogenerate: { directory: '/items/' }
+    },
+    {
 			label: 'Contributing',
 			collapsed: true,
 			items: [
