@@ -1,3 +1,4 @@
+/* Accent color */
 :root,
 ::backdrop{
   --sl-color-accent-high: #E16FD6;
@@ -5,4 +6,39 @@
 :root[data-theme='light'],
 [data-theme='light'] ::backdrop {
   --sl-color-accent: #c561bb;
+}
+
+/* 
+Allow Chrome zero-js transitions
+Currently overridden by astro:transition
+*/
+:root {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+/* Sidebar logo Styles */
+.bc_logo_link {
+  width: 50%;
+}
+
+.bc_logo_link img {
+  width: 100%;
+}
+@media (min-width: 50rem) {
+  .bc_logo_link {
+    width: 100%;
+  }
+  .bc_logo_link img {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(.5,0,.5,1);
+    transition-duration: 300ms;
+    width: 95%;
+    margin: 2.5% 2.5% 2.5% 2.5%;
+  }
+  .bc_logo_link:hover img {
+    transform-origin: center;
+    transform: scale(1.15);
+  }
 }
