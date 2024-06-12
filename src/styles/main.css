@@ -12,11 +12,11 @@
 Allow Chrome zero-js transitions
 Currently overridden by astro:transition
 */
-:root {
+/* :root {
   @view-transition {
     navigation: auto;
   }
-}
+} */
 
 /* Sidebar logo Styles */
 .bc_logo_link {
@@ -26,6 +26,7 @@ Currently overridden by astro:transition
 .bc_logo_link img {
   width: 100%;
 }
+
 @media (min-width: 50rem) {
   .bc_logo_link {
     width: 100%;

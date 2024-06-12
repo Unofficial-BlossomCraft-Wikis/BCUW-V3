@@ -29,8 +29,6 @@ export default defineConfig({
       src: './src/assets/favicon.png'
     },
     locales,
-    // Not used for the moment as chrome just added native zero-js transitions,
-    // which was the use of this, if needed this can be enabled in the future
     components: {
       Head: './src/components/Head.astro',
       Sidebar: './src/components/SideBar.astro',
