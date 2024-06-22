@@ -14,7 +14,9 @@
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/starlight": "^0.24.4",
+    "@astrojs/vercel": "^7.7.1",
     "@lunariajs/core": "^0.1.0",
+    "@vercel/analytics": "^1.3.1",
     "astro": "^4.11.0",
     "astro-webmanifest": "^1.0.0",
     "sharp": "^0.32.5",
