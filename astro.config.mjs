@@ -49,7 +49,7 @@ export default defineConfig({
         {
           label: "Discord Resources",
           link: '/starter/discordresources/'
-        }
+        },
 			],
     },
     {
@@ -68,6 +68,10 @@ export default defineConfig({
 			label: 'Contributing',
 			collapsed: true,
 			items: [
+        {
+          label: "Staff",
+          link: '/contributing/staff/'
+        },
 				{
 					label: "How to contribute",
 					link: '/contributing/home/'

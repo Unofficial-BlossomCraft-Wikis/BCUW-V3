@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
-    "@astrojs/starlight": "^0.24.1",
+    "@astrojs/starlight": "^0.24.4",
     "@lunariajs/core": "^0.1.0",
-    "astro": "^4.10.2",
+    "astro": "^4.11.0",
     "astro-webmanifest": "^1.0.0",
     "sharp": "^0.32.5",
     "typescript": "^5.4.5"
