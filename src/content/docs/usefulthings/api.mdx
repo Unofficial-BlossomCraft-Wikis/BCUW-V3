@@ -6,3 +6,91 @@ description: our API | BCUW
 :::caution
 This is under construction and is a planned feature.
 :::
+
+## Internal API
+these API's where made for internal use but are available to the public.
+
+### Contributors Image API
+:::caution
+This updates daily at midnight UTC. It is not updated at time of the request.
+:::
+
+The contributors image API is how the [staff](/contributing/staff) page get it's images.
+syntax:
+
+```html title="example.html"
+<img src="https://www.bcuw.xyz/api/v1/imgs/contributor/{github username}.png" />
+<img src="https://www.bcuw.xyz/api/v1/imgs/contributor/{github username}.svg" />
+```
+
+#### example code:
+```html title="example.html"
+<img src="https://www.bcuw.xyz/api/v1/imgs/contributor/altie122.png" />
+<img src="https://www.bcuw.xyz/api/v1/imgs/contributor/altie122.svg" />
+```
+##### example output:
+![altie122](https://www.bcuw.xyz/api/v1/imgs/contributor/altie122.png)
+
+### Contributors List API
+:::caution
+This updates daily at midnight UTC. It is not updated at time of the request.
+:::
+
+The contributors list API is how the [staff](/contributing/staff) page get it's list of contributors. this is a JSON file containing the contributors and their pull requests, issues and commits.
+
+response scehma:
+```json title="contributors.json"
+{
+  {
+    "GITHUB_USERNAME": {
+      "avatar_url": "STRING",
+      "issues": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "pulls": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "merged_pulls": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "commits": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "reviews": {
+        "REPOSITORY": "INT",
+        ...
+      }
+    }
+  },
+  {
+    "ANOTHER_GITHUB_USERNAME": {
+      "avatar_url": "STRING",
+      "issues": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "pulls": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "merged_pulls": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "commits": {
+        "REPOSITORY": "INT",
+        ...
+      },
+      "reviews": {
+        "REPOSITORY": "INT",
+        ...
+      }
+    }
+  },
+  ...
+}
+```
