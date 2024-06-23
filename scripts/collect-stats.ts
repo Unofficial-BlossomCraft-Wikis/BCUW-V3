@@ -217,11 +217,7 @@ class StatsCollector {
   }
 
   async #writeData(data: any) {
-    return await writeFile(
-      'src/data/contributors.json',
-      JSON.stringify(data),
-      'utf8'
-    );
+    return await writeData(data);
   }
 }
 
@@ -230,3 +226,16 @@ const collector = new StatsCollector({
   token: process.env.GITHUB_TOKEN,
 });
 await collector.run();
+
+async function writeData(data: any) {
+  const filePaths = [
+    'src/data/contributors.json',
+    'src/pages/api/v1/data/contributors.json'
+  ];
+
+  // Iterate over each file path and write the data asynchronously
+  await Promise.all(filePaths.map(async (filePath) => {
+    await writeFile(filePath, JSON.stringify(data), 'utf8');
+    console.log(`Data written to ${filePath}`);
+  }));
+}
