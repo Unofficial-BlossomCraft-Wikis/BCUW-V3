@@ -1,3 +1,4 @@
+export const prerender = true;
 import { Resvg } from '@resvg/resvg-js';
 import { getSvg, getStaticPaths } from './[username].svg';
 import type { InferStaticAPIRoute } from '../../../../../types';

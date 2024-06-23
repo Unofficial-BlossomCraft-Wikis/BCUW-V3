@@ -1,3 +1,4 @@
+export const prerender = true;
 import type { InferStaticAPIRoute, InferStaticContext } from '../../../../../types';
 import { contributors, type EnhancedContributor } from "../../../../../util/getContributors";
 
