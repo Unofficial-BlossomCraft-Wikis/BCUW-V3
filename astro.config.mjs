@@ -21,7 +21,7 @@ export default defineConfig({
   site,
   integrations: [starlight({
     credits: true,
-    favicon: 'bcuwTitleSquare.png',
+    favicon: 'bcuwOnlyTitleSquare.png',
     title: 'BCUW',
     social: {
       github: 'https://github.com/Unofficial-BlossomCraft-Wikis/BCUW'
@@ -31,7 +31,7 @@ export default defineConfig({
     },
     customCss: ['./src/styles/main.css'],
     logo: {
-      src: './src/assets/bcuwTitleSquare.png'
+      src: './src/assets/bcuwOnlyTitleSquare.png'
     },
     locales,
     components: {
@@ -51,6 +51,9 @@ export default defineConfig({
       }, {
         label: "Discord Resources",
         link: '/starter/discordresources/'
+      }, {
+        label: "Credits",
+        link: '/starter/credits/'
       }]
     }, {
       label: 'Crates',
@@ -80,6 +83,9 @@ export default defineConfig({
       }, {
         label: "i18n Tracker",
         link: '/contributing/i18n/'
+      }, {
+        label: "Logos",
+        link: '/contributing/logos/'
       }]
     }, {
       label: 'Usefull things',
@@ -98,7 +104,7 @@ export default defineConfig({
     }]
   }), webmanifest({
     name: 'BCUW',
-    icon: './src/assets/favicon.png',
+    icon: './src/assets/bcuwOnlyTitleSquare.png',
     short_name: 'BCUW',
     description: "The BlossomCraft Wiki that's run by players",
     start_url: '/',
