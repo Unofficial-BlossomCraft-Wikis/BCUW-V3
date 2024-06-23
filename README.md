@@ -15,3 +15,4 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview` | Preview your build locally, before deploying |
 | `npm run lunaria:build` | Build your i18n production site to `./dist/lunaria` |
 | `npm run lunaria:preview` | Preview your i18n build locally, before deploying |
+| `npm run collect-stats` | Collect stats from GitHub and update `./data/contributors.json` |
