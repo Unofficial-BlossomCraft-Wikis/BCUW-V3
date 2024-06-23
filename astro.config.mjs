@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import webmanifest from "astro-webmanifest";
 import vercel from "@astrojs/vercel/serverless";
+import tailwind from "@astrojs/tailwind";
 export const locales = {
   root: {
     label: 'English',
@@ -104,7 +105,7 @@ export default defineConfig({
     theme_color: '#E16FD6',
     background_color: '#E16FD6',
     display: 'standalone'
-  })],
+  }), tailwind()],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   image: {
     service: {
@@ -113,6 +114,8 @@ export default defineConfig({
   },
   output: "hybrid",
   adapter: vercel({
-    webAnalytics: { enabled: true }
-  }),
+    webAnalytics: {
+      enabled: true
+    }
+  })
 });

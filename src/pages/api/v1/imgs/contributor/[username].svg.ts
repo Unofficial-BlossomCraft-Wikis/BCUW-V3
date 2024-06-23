@@ -8,7 +8,7 @@ export type Context = InferStaticContext<typeof getStaticPaths>;
 
 const icons = {
   commits:
-    '',
+    '<path transform="scale(0.6,0.6) translate(0,0)" d="M11 4C11 3.44772 11.4477 3 12 3C12.5523 3 13 3.44772 13 4V9.17071C14.1652 9.58254 15 10.6938 15 12C15 13.3062 14.1652 14.4175 13 14.8293V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V14.8293C9.83481 14.4175 9 13.3062 9 12C9 10.6938 9.83481 9.58254 11 9.17071V4ZM12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"/>',
   issues:
     `<path d="M6 7.125a1.125 1.125 0 1 0 0-2.25 1.125 1.125 0 0 0 0 2.25Z"/>
     <path d="M6 0a6 6 0 1 1 0 12 6 6 0 0 1 0-12Zm-4.875 6a4.875 4.875 0 1 0 9.75 0 4.875 4.875 0 0 0-9.75 0Z"/>`,
@@ -21,28 +21,28 @@ const icons = {
 const Stat = ({ count, type }: { count: string; type: keyof typeof icons }, i: number) => `<svg x="${39 + i * 30}" y="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
 ${icons[type]}
 </svg>
-<text font-weight="500" font-size="8.5" x="${55 + i * 30}" y="40" text-anchor="middle">${count}</text>`
+<text font-weight="500" font-size="8.5" x="${60 + i * 30}" y="40" text-anchor="middle">${count}</text>`
 
 export async function getSvg(ctx: Context): Promise<string> {
   const { username } = ctx.params;
   const { stats, getBase64Avatar } = contributors.find((c) => c.username === username)!;
   const b64 = await getBase64Avatar();
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 160 51" width="160" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" direction="ltr">
+  return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 260 51" width="260" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" direction="ltr">
   <!--solid backdrop-->
-  <rect width="159" height="50" x=".5" y=".5" fill="#1A1B1E" rx="3.5"/>
+  <rect width="259" height="50" x=".5" y=".5" fill="#1A1B1E" rx="3.5"/>
   <!--gradient background-->
-  <rect width="159" height="50" x=".5" y=".5" fill="url(#a)" fill-opacity=".5" rx="3.5"/>
+  <rect width="259" height="50" x=".5" y=".5" fill="url(#a)" fill-opacity=".5" rx="3.5"/>
   <!--gradient border-->
-  <rect width="159" height="50" x=".5" y=".5" stroke="url(#a)" rx="3.5"/>
+  <rect width="259" height="50" x=".5" y=".5" stroke="url(#a)" rx="3.5"/>
   <!--avatar image-->
   <image href="data:image/jpeg;base64,${b64}" x="5" y="8" width="24" height="24" clip-path="url(#avatar-clip)" />
   <!--avatar stroke-->
   <circle cx="17" cy="20" r="11.5" stroke="#17191E" stroke-opacity=".18"/>
   <!--BCUW-->
-  <g fill="gray">
+  <g fill="white">
     <g font-size="10">
-      <text x="125" y="22" font-family="'IBM Plex Mono', monospace" font-size="13">BCUW</text>
+      <text x="225" y="22" font-family="'IBM Plex Mono', monospace" font-size="13">BCUW</text>
     </g>
   </g>
 
@@ -55,8 +55,8 @@ export async function getSvg(ctx: Context): Promise<string> {
   <defs>
     <clipPath id="avatar-clip"><circle cx="17" cy="20" r="12" /></clipPath>
     <linearGradient id="a" x1="0" x2="259.859" y1="156" y2="108.389" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3245FF"/>
-      <stop offset="1" stop-color="#BC52EE"/>
+      <stop stop-color="#6FD6E1"/>
+      <stop offset="1" stop-color="#E16FD6"/>
     </linearGradient>
   </defs>
 </svg>`;
