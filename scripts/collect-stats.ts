@@ -230,7 +230,7 @@ await collector.run();
 async function writeData(data: any) {
   const filePaths = [
     'src/data/contributors.json',
-    'src/pages/api/v1/data/contributors.json'
+    'public/api/v1/static/data/contributors.json'
   ];
 
   // Iterate over each file path and write the data asynchronously
