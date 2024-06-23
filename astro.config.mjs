@@ -21,7 +21,7 @@ export default defineConfig({
   site,
   integrations: [starlight({
     credits: true,
-    favicon: 'favicon.png',
+    favicon: 'bcuwTitleSquare.png',
     title: 'BCUW',
     social: {
       github: 'https://github.com/Unofficial-BlossomCraft-Wikis/BCUW'
@@ -31,7 +31,7 @@ export default defineConfig({
     },
     customCss: ['./src/styles/main.css'],
     logo: {
-      src: './src/assets/favicon.png'
+      src: './src/assets/bcuwTitleSquare.png'
     },
     locales,
     components: {
