@@ -13,7 +13,7 @@ export const locales = {
     lang: 'es'
   }
 };
-const site = "https://bcuw.xyz";
+const site = "https://www.bcuw.xyz";
 
 
 // https://astro.build/config
