@@ -3,7 +3,7 @@
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
 
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -16,3 +16,5 @@ All commands are run from the root of the project, from a terminal:
 | `npm run lunaria:build` | Build your i18n production site to `./dist/lunaria` |
 | `npm run lunaria:preview` | Preview your i18n build locally, before deploying |
 | `npm run collect-stats` | Collect stats from GitHub and update `./data/contributors.json` |
+
+To test the Stat Collection you must have a GitHub API token as the `GITHUB_TOKEN` environment variable.
