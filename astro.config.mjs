@@ -112,7 +112,7 @@ export default defineConfig({
       entrypoint: 'astro/assets/services/sharp'
     }
   },
-  output: "hybrid",
+  output: "server",
   adapter: vercel({
     webAnalytics: {
       enabled: true
