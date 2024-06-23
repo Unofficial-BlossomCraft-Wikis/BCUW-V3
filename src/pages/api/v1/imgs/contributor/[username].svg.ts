@@ -43,7 +43,7 @@ export async function getSvg(ctx: Context): Promise<string> {
   <!--BCUW-->
   <g fill="white">
     <g font-size="10">
-      <text x="225" y="22" font-family="'IBM Plex Mono', monospace" font-size="13">BCUW</text>
+      <text x="225" y="13" font-family="'IBM Plex Mono', monospace" font-size="13" fill-opacity=".25">BCUW</text>
     </g>
   </g>
 
