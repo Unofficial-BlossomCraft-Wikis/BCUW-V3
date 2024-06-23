@@ -18,12 +18,12 @@ const fetchData = async () => {
 await fetchData();
 ---
 <h4>Owner</h4>
-<img src="/api/v1/imgs/contributor/altie122.png" alt="altie122" />
+<img src="/api/v1/imgs/contributor/altie122.svg" alt="altie122" class="w-full" />
 <h4>Contributors</h4>
 <div class="columns-1 md:columns-2">
   {contributors.map(username => (
     username == 'altie122' ? null : (
-      <img src={`/api/v1/imgs/contributor/${username}.png`} alt={username} class="" />
+      <img src={`/api/v1/imgs/contributor/${username}.svg`} alt={username} class="w-full" />
     )
   ))}
 </div>
