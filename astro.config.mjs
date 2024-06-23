@@ -31,7 +31,8 @@ export default defineConfig({
     },
     customCss: ['./src/styles/main.css'],
     logo: {
-      src: './src/assets/bcuwOnlyTitleSquare.png'
+      src: './src/assets/bcuwOnlyTitleNormal.png',
+      replacesTitle: true,
     },
     locales,
     components: {
