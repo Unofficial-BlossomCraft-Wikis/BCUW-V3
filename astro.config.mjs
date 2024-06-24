@@ -85,17 +85,17 @@ export default defineConfig({
         label: "i18n Tracker",
         link: '/contributing/i18n/'
       }, {
+        label: "CDN",
+        link: '/contributing/cdn/'
+      }, {
         label: "Logos",
         link: '/contributing/logos/'
       }]
-    }, {
+    },/* { Commented out for now, will be added back in later when the API is finished
       label: 'Usefull things',
       collapsed: true,
-      items: [{
-        label: "CDN",
-        link: '/usefulthings/cdn/'
-      }]
-    }],
+      items: []
+    }*/],
     head: [{
       tag: 'script',
       attrs: {
