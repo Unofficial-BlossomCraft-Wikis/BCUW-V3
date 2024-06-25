@@ -18,3 +18,19 @@ All commands are run from the root of the project, from a terminal:
 | `npm run collect-stats` | Collect stats from GitHub and update `./data/contributors.json` |
 
 To test the Stat Collection you must have a GitHub API token as the `GITHUB_TOKEN` environment variable.
+
+## Tools
+### Don't know MD/Starlight/MDX? heres some tools:
+- https://www.markdownguide.org/cheat-sheet/
+- https://starlight.astro.build/guides/components/
+- https://starlight.astro.build/guides/authoring-content/
+
+### Don't know JS/TS?
+- https://www.typescriptlang.org/docs/handbook/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/
+
+### Don't know Astro?
+- https://astro.build/docs/
+
+## Guidelines
+- When embedding YouTube videos, please use the VideoYT component (`import VideoYT from '@components/tailwinded/VideoYT.astro';`);
