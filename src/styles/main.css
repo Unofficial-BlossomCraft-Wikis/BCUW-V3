@@ -1,11 +1,11 @@
 /* Accent color */
 :root,
 ::backdrop{
-  --sl-color-accent-high: #E16FD6;
+  --sl-color-accent-high: hsl(306, 66%, 66%);
 }
 :root[data-theme='light'],
 [data-theme='light'] ::backdrop {
-  --sl-color-accent: #c561bb;
+  --sl-color-accent: hsl(306, 91%, 71%);
 }
 
 /* 

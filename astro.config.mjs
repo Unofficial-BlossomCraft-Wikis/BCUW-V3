@@ -20,11 +20,12 @@ const VERCEL_PREVIEW_SITE =
 	process.env.VERCEL_URL &&
 	`https://${process.env.VERCEL_URL}`;
 
-  const site = VERCEL_PREVIEW_SITE || "https://www.bcuw.xyz";
+  const site = VERCEL_PREVIEW_SITE || "https://www.bcuw.xyz/";
 
 // https://astro.build/config
 export default defineConfig({
   site,
+  trailingSlash: 'always',
   integrations: [starlight({
     credits: true,
     favicon: 'bcuwOnlyTitleSquare.png',
@@ -35,7 +36,7 @@ export default defineConfig({
     editLink: {
       baseUrl: 'https://github.com/Unofficial-BlossomCraft-Wikis/BCUW/edit/main/'
     },
-    customCss: ['./src/styles/main.css'],
+    customCss: process.env.NO_GRADIENTS ? ['./src/styles/main.css'] : ['./src/styles/main.css', './src/styles/landing.css'],
     logo: {
       src: './src/assets/bcuwOnlyTitleNormal.png',
       replacesTitle: true,
@@ -131,7 +132,15 @@ export default defineConfig({
           src: 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js',
           type: 'module'
         }
-      }
+      },
+      {
+        tag: 'meta',
+        attrs: { property: 'og:image', content: site + 'bcuwNoXYZTitleNormal.png' },
+      },
+      {
+        tag: 'meta',
+        attrs: { property: 'twitter:image', content: site + 'bcuwNoXYZTitleNormal.png' },
+      },
     ],
     plugins: [
       starlightUtils({
