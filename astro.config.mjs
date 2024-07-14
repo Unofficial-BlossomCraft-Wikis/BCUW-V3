@@ -25,7 +25,6 @@ const VERCEL_PREVIEW_SITE =
 // https://astro.build/config
 export default defineConfig({
   site,
-  trailingSlash: 'always',
   integrations: [starlight({
     credits: true,
     favicon: 'bcuwOnlyTitleSquare.png',
