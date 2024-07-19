@@ -1,13 +1,16 @@
 /* Accent color */
 :root,
 ::backdrop{
-  --sl-color-accent-high: hsl(306, 66%, 66%);
+  --main-color: rgb(226, 111, 214);
+  --sl-color-accent-high: var(--main-color);
+  --main-color-transparent: rgb(226, 111, 214, 0.6);
 }
 :root[data-theme='light'],
 [data-theme='light'] ::backdrop {
-  --sl-color-accent: hsl(306, 91%, 71%);
+  --sl-color-accent: var(--main-color);
+  --main-color-transparent: rgb(226, 111, 214, 0.6);
 }
-
+/* Custom styles */
 /* 
 Allow Chrome zero-js transitions
 Currently overridden by astro:transition
@@ -32,7 +35,7 @@ Currently overridden by astro:transition
     width: 100%;
   }
   .bc_logo_link img {
-    transition-property: transform;
+    transition-property: all;
     transition-timing-function: cubic-bezier(.5,0,.5,1);
     transition-duration: 300ms;
     width: 95%;
@@ -42,4 +45,70 @@ Currently overridden by astro:transition
     transform-origin: center;
     transform: scale(1.15);
   }
+}
+
+
+/* These styles are directly from shop.blossomcraft.org */
+
+::-webkit-scrollbar-track {
+  background: var(--main-color-transparent);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Custom styles */
+@keyframes rainbow-border {
+  0% {
+    border-color: (--main-color);
+  }
+  20% {
+    border-color: #db3434;
+  }
+  40% {
+    border-color: #4ec344;
+  }
+  60% {
+    border-color: #db34a0;
+  }
+  80% {
+    border-color: #d8db34;
+  }
+  100% {
+    border-color: (--main-color);
+  }
+}
+
+@keyframes rainbow-bg-transparent {
+  0% {
+    background: var(--main-color-transparent);
+  }
+  20% {
+    background: rgba(219, 52, 52, 0.6);
+  }
+  40% {
+    background: rgba(78, 195, 68, 0.6);
+  }
+  60% {
+    background: rgba(219, 52, 160, 0.6);
+  }
+  80% {
+    background: rgba(216, 219, 52, 0.6);
+  }
+  100% {
+    background: var(--main-color-transparent);
+  }
+}
+
+/* Badges */
+.rainbow-badge {
+  background: hsl(#4ec344);
+  animation: rainbow-bg-transparent 15s infinite, rainbow-border 15s infinite;
+  color: #fff;
 }
