@@ -4,6 +4,7 @@ import webmanifest from "astro-webmanifest";
 import vercel from "@astrojs/vercel/serverless";
 import tailwind from "@astrojs/tailwind";
 import starlightUtils from "@lorenzo_lewis/starlight-utils";
+import starlightLinksValidator from 'starlight-links-validator';
 export const locales = {
   root: {
     label: 'English',
@@ -14,13 +15,9 @@ export const locales = {
     lang: 'es'
   }
 };
+const VERCEL_PREVIEW_SITE = process.env.VERCEL_ENV !== 'production' && process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`;
+const site = VERCEL_PREVIEW_SITE || "https://www.bcuw.xyz/";
 
-const VERCEL_PREVIEW_SITE =
-	process.env.VERCEL_ENV !== 'production' &&
-	process.env.VERCEL_URL &&
-	`https://${process.env.VERCEL_URL}`;
-
-  const site = VERCEL_PREVIEW_SITE || "https://www.bcuw.xyz/";
 
 // https://astro.build/config
 export default defineConfig({
@@ -38,7 +35,7 @@ export default defineConfig({
     customCss: process.env.NO_GRADIENTS ? ['./src/styles/main.css'] : ['./src/styles/main.css', './src/styles/landing.css'],
     logo: {
       src: './src/assets/bcuwOnlyTitleNormal.png',
-      replacesTitle: true,
+      replacesTitle: true
     },
     locales,
     components: {
@@ -46,123 +43,96 @@ export default defineConfig({
       Sidebar: './src/components/SideBar.astro'
     },
     lastUpdated: true,
-    sidebar: [
-      {
-        label: 'Main',
-        items: [
-          {
-            label: 'Starting',
-            items: [
-              {
-                label: "Why and What?",
-                link: '/starter/home/'
-              }, 
-              {
-                label: "Resources",
-                link: '/starter/resources/'
-              }, 
-              {
-                label: "Discord Resources",
-                link: '/starter/discordresources/'
-              }, 
-              {
-                label: "Credits",
-                link: '/starter/credits/'
-              }
-            ]
-          }, 
-          {
-            label: 'Contributing',
-            items: [
-              {
-                label: "Staff",
-                link: '/contributing/staff/'
-              }, 
-              {
-                label: "How to contribute",
-                link: '/contributing/home/'
-              }, 
-              {
-                label: "i18n Tracker",
-                link: '/contributing/i18n/'
-              }, 
-              {
-                label: "CDN",
-                link: '/contributing/cdn/'
-              }, 
-              {
-                label: "Logos",
-                link: '/contributing/logos/'
-              }
-            ]
-          },
-          /* { Commented out for now, will be added back in later when the API is finished
-            label: 'Usefull things',
-            collapsed: true,
-            items: []
-          },*/
-        ],
-      },
-      {
-        label: 'Crates',
+    sidebar: [{
+      label: 'Main',
+      items: [{
+        label: 'Starting',
+        items: [{
+          label: "Why and What?",
+          link: '/starter/home/'
+        }, {
+          label: "Resources",
+          link: '/starter/resources/'
+        }, {
+          label: "Discord Resources",
+          link: '/starter/discordresources/'
+        }, {
+          label: "Credits",
+          link: '/starter/credits/'
+        }]
+      }, {
+        label: 'Contributing',
+        items: [{
+          label: "Staff",
+          link: '/contributing/staff/'
+        }, {
+          label: "How to contribute",
+          link: '/contributing/home/'
+        }, {
+          label: "i18n Tracker",
+          link: '/contributing/i18n/'
+        }, {
+          label: "CDN",
+          link: '/contributing/cdn/'
+        }, {
+          label: "Logos",
+          link: '/contributing/logos/'
+        }]
+      }
+      /* { Commented out for now, will be added back in later when the API is finished
+        label: 'Usefull things',
         collapsed: true,
-        items: [
-          {
-            label: 'Season',
-            collapsed: true,
-            autogenerate: {
-              directory: '/crates/season'
-            }
-          }
-        ]
-      }, 
-      {
-        label: 'Items',
+        items: []
+      },*/]
+    }, {
+      label: 'Crates',
+      collapsed: true,
+      items: [{
+        label: 'Season',
         collapsed: true,
         autogenerate: {
-          directory: '/items/'
+          directory: '/crates/season'
         }
-      }, 
-    ],
-    head: [
-      {
-        tag: 'script',
-        attrs: {
-          src: 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js',
-          type: 'module'
-        }
-      },
-      {
-        tag: 'meta',
-        attrs: { property: 'og:image', content: site + 'bcuwNoXYZTitleNormal.png' },
-      },
-      {
-        tag: 'meta',
-        attrs: { property: 'twitter:image', content: site + 'bcuwNoXYZTitleNormal.png' },
-      },
-    ],
-    plugins: [
-      starlightUtils({
-        multiSidebar: true,
-        switcherStyle: "horizontalList",
-      }),
-    ],
-    }), 
-    webmanifest({
-      name: 'BCUW',
-      icon: './src/assets/bcuwOnlyTitleSquare.png',
-      short_name: 'BCUW',
-      description: "The BlossomCraft Wiki that's run by players",
-      start_url: '/',
-      theme_color: '#E16FD6',
-      background_color: '#E16FD6',
-      display: 'standalone'
-    }), 
-    tailwind()
-  ],
+      }]
+    }, {
+      label: 'Items',
+      collapsed: true,
+      autogenerate: {
+        directory: '/items/'
+      }
+    }],
+    head: [{
+      tag: 'meta',
+      attrs: {
+        property: 'og:image',
+        content: site + 'bcuwNoXYZTitleNormal.png'
+      }
+    }, {
+      tag: 'meta',
+      attrs: {
+        property: 'twitter:image',
+        content: site + 'bcuwNoXYZTitleNormal.png'
+      }
+    }],
+    plugins: [starlightUtils({
+      multiSidebar: true,
+      switcherStyle: "horizontalList"
+    }), starlightLinksValidator()]
+  }), webmanifest({
+    name: 'BCUW',
+    icon: './src/assets/bcuwOnlyTitleSquare.png',
+    short_name: 'BCUW',
+    description: "The BlossomCraft Wiki that's run by players",
+    start_url: '/',
+    theme_color: '#E16FD6',
+    background_color: '#E16FD6',
+    display: 'standalone'
+  }), tailwind({
+    applyBaseStyles: false
+  })],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   image: {
-    service: squooshImageService(),
+    service: squooshImageService()
   },
   output: "server",
   adapter: vercel({
