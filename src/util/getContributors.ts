@@ -1,9 +1,12 @@
-import sharp from 'sharp';
-import data from '../data/contributors.json';
-import type { Contributor } from '../types';
-import { getStats } from './getStats';
-import { objSum } from './objSum';
-import { resizedGitHubAvatarURL } from './resizedGitHubAvatarURL';
+import sharp from "sharp";
+import type { Contributor } from "../types";
+import { getStats } from "./getStats";
+import { objSum } from "./objSum";
+import { resizedGitHubAvatarURL } from "./resizedGitHubAvatarURL";
+const raw_data = await fetch(
+  "http://unofficial-blossomcraft-wikis.github.io/BCUW-contributors/contributors.json"
+);
+const data = await raw_data.json();
 
 export interface EnhancedContributor extends Contributor {
   username: string;
@@ -19,11 +22,11 @@ async function getBase64Avatar(avatar_url: string) {
   }
   const avatarRes = await fetch(resizedGitHubAvatarURL(avatar_url, 60));
   let avatarBuffer = Buffer.from(await (await avatarRes.blob()).arrayBuffer());
-  if (avatarRes.headers.get('content-type') !== 'image/jpeg') {
+  if (avatarRes.headers.get("content-type") !== "image/jpeg") {
     // resvg doesn’t like PNG avatars, so force to JPEG:
     avatarBuffer = await sharp(avatarBuffer).flatten().jpeg().toBuffer();
   }
-  const b64 = avatarBuffer.toString('base64');
+  const b64 = avatarBuffer.toString("base64");
   avatarCache.set(avatar_url, b64);
   return b64;
 }
