@@ -28,6 +28,7 @@ Currently overridden by astro:transition
 
 .bc_logo_link img {
   width: 100%;
+  filter: drop-shadow(0 0 1rem var(--overlay-blurple));
 }
 
 @media (min-width: 50rem) {
@@ -44,6 +45,7 @@ Currently overridden by astro:transition
   .bc_logo_link:hover img {
     transform-origin: center;
     transform: scale(1.15);
+    filter: drop-shadow(0 0 3rem var(--overlay-blurple));
   }
 }
 
