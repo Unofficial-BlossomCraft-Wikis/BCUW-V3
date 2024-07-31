@@ -1,7 +1,7 @@
 import { defineConfig, squooshImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 import webmanifest from "astro-webmanifest";
-import vercel from "@astrojs/vercel/serverless";
+// import vercel from "@astrojs/vercel/serverless";
 import tailwind from "@astrojs/tailwind";
 import starlightUtils from "@lorenzo_lewis/starlight-utils";
 import starlightLinksValidator from "starlight-links-validator";
@@ -169,10 +169,10 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
-  output: "server",
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  // output: "server",
+  // adapter: vercel({
+  //   webAnalytics: {
+  //     enabled: true,
+  //   },
+  // }),
 });
