@@ -5,6 +5,7 @@ import webmanifest from "astro-webmanifest";
 import tailwind from "@astrojs/tailwind";
 import starlightUtils from "@lorenzo_lewis/starlight-utils";
 import starlightLinksValidator from "starlight-links-validator";
+import netlify from "@astrojs/netlify";
 export const locales = {
   root: {
     label: "English",
@@ -16,10 +17,14 @@ export const locales = {
   },
 };
 const VERCEL_PREVIEW_SITE =
+  process.env.VERCEL_ENV &&
   process.env.VERCEL_ENV !== "production" &&
   process.env.VERCEL_URL &&
   `https://${process.env.VERCEL_URL}`;
-const site = VERCEL_PREVIEW_SITE || "https://www.bcuw.xyz/";
+const NETLIFY_PREVIEW_SITE =
+  process.env.CONTEXT !== "production" && process.env.DEPLOY_PRIME_URL;
+const site =
+  VERCEL_PREVIEW_SITE || NETLIFY_PREVIEW_SITE || "https://www.bcuw.xyz/";
 
 // https://astro.build/config
 export default defineConfig({
@@ -100,9 +105,9 @@ export default defineConfig({
               ],
             },
             /* { Commented out for now, will be added back in later when the API is finished
-        label: 'Usefull things',
-        collapsed: true,
-        items: []
+      label: 'Usefull things',
+      collapsed: true,
+      items: []
       },*/
           ],
         },
@@ -169,10 +174,12 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
-  // output: "server",
-  // adapter: vercel({
-  //   webAnalytics: {
-  //     enabled: true,
-  //   },
-  // }),
+  output: "server",
+  adapter: process.env.NETLIFY
+    ? netlify()
+    : vercel({
+        webAnalytics: {
+          enabled: true,
+        },
+      }),
 });
