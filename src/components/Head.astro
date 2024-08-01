@@ -3,9 +3,17 @@
 import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/Head.astro';
 import { ViewTransitions } from 'astro:transitions';
-import  SpeedInsights  from "@vercel/speed-insights/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+const netlify = process.env.NETLIFY;
+const deployID = netlify && process.env.BUILD_ID || process.env.VERCEL_DEPLOYMENT_ID && process.env.VERCEL_DEPLOYMENT_ID || "Local";
+const host = netlify && "Netlify" || process.env.VERCEL_ENV && "Vercel" || "Local";
+const context = netlify && process.env.CONTEXT || process.env.VERCEL_ENV && process.env.VERCEL_ENV || "Local";
+const buildCode = `#${context}-${deployID}-${host}`;
 ---
-<Default {...Astro.props}><slot /></Default>
+<Default {...Astro.props}>
+  <slot />
+</Default>
 <link rel="dns-prefetch" href="https://blossomcraft.org/" />
+<meta name="build-code" content={buildCode} />
 <ViewTransitions />
-<SpeedInsights/>
+{!netlify && <SpeedInsights />}

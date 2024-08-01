@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",
+    "@astrojs/netlify": "^5.4.0",
     "@astrojs/react": "^3.6.0",
     "@astrojs/starlight": "^0.25.3",
     "@astrojs/tailwind": "^5.1.0",
@@ -32,9 +33,12 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sharp": "^0.32.5",
-    "starlight-links-validator": "^0.9.1",
+    "starlight-links-validator": "^0.10.0",
     "tailwindcss": "^3.4.4",
     "tsm": "^2.3.0",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/picomatch": "^3.0.0"
   }
 }
