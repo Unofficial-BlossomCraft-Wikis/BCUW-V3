@@ -6,6 +6,7 @@ import tailwind from "@astrojs/tailwind";
 import starlightUtils from "@lorenzo_lewis/starlight-utils";
 import starlightLinksValidator from "starlight-links-validator";
 import netlify from "@astrojs/netlify";
+import sentry from "@sentry/astro";
 export const locales = {
   root: {
     label: "English",
@@ -22,7 +23,9 @@ const VERCEL_PREVIEW_SITE =
   process.env.VERCEL_URL &&
   `https://${process.env.VERCEL_URL}`;
 const NETLIFY_PREVIEW_SITE =
-  process.env.NETLIFY && process.env.CONTEXT !== "production" && process.env.DEPLOY_PRIME_URL;
+  process.env.NETLIFY &&
+  process.env.CONTEXT !== "production" &&
+  process.env.DEPLOY_PRIME_URL;
 const site =
   VERCEL_PREVIEW_SITE || NETLIFY_PREVIEW_SITE || "https://www.bcuw.xyz/";
 
@@ -168,6 +171,16 @@ export default defineConfig({
     }),
     tailwind({
       applyBaseStyles: false,
+    }),
+    // Use sentry fro the site
+    sentry({
+      dsn: process.env.SENTRY_DSN,
+      sourceMapsUploadOptions: {
+        project: process.env.SENTRY_PROJECT,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+      replaysSessionSampleRate: 0.2,
+      replaysOnErrorSampleRate: 1.0,
     }),
   ],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
