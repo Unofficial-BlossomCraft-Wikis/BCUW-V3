@@ -11,10 +11,10 @@ export const locales = {
     label: "English",
     lang: "en",
   },
-  es: {
-    label: "Español",
-    lang: "es",
-  },
+  // es: {
+  //   label: "Español",
+  //   lang: "es",
+  // },
 };
 const NETLIFY_PREVIEW_SITE =
   process.env.NETLIFY &&
