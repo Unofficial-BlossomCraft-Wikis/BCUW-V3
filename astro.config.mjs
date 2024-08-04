@@ -1,7 +1,6 @@
 import { defineConfig, squooshImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 import webmanifest from "astro-webmanifest";
-import vercel from "@astrojs/vercel/serverless";
 import tailwind from "@astrojs/tailwind";
 import starlightUtils from "@lorenzo_lewis/starlight-utils";
 import starlightLinksValidator from "starlight-links-validator";
@@ -12,22 +11,17 @@ export const locales = {
     label: "English",
     lang: "en",
   },
-  es: {
-    label: "Español",
-    lang: "es",
-  },
+  // es: {
+  //   label: "Español",
+  //   lang: "es",
+  // },
 };
-const VERCEL_PREVIEW_SITE =
-  process.env.VERCEL_ENV &&
-  process.env.VERCEL_ENV !== "production" &&
-  process.env.VERCEL_URL &&
-  `https://${process.env.VERCEL_URL}`;
 const NETLIFY_PREVIEW_SITE =
   process.env.NETLIFY &&
   process.env.CONTEXT !== "production" &&
   process.env.DEPLOY_PRIME_URL;
 const site =
-  VERCEL_PREVIEW_SITE || NETLIFY_PREVIEW_SITE || "https://www.bcuw.xyz/";
+  NETLIFY_PREVIEW_SITE || "https://www.bcuw.xyz/";
 
 // https://astro.build/config
 export default defineConfig({
@@ -188,11 +182,7 @@ export default defineConfig({
     service: squooshImageService(),
   },
   output: "server",
-  adapter: process.env.NETLIFY
-    ? netlify()
-    : vercel({
-        webAnalytics: {
-          enabled: true,
-        },
-      }),
+  adapter: netlify({
+    imageCDN: false,
+  }),
 });
