@@ -13,8 +13,9 @@
   "dependencies": {
     "@astrojs/check": "^0.8.3",
     "@astrojs/netlify": "^5.4.0",
-    "@astrojs/react": "^3.6.0",
+    "@astrojs/react": "^3.6.1",
     "@astrojs/tailwind": "^5.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@resvg/resvg-js": "^2.6.2",
     "@sentry/astro": "^8.22.0",
     "@types/react": "^18.3.3",
