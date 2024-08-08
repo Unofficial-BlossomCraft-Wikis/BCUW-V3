@@ -4,7 +4,6 @@
 ### /api/v1/imgs/
 - [x] contributor stats
 - [ ] OG/Twitter images
-### /api/v1/static/imgs/
 - [ ] CDN proxy
 
 ## Data
@@ -14,5 +13,4 @@
 - [ ] PatchNotes data
 - [ ] Announcements data
 - [ ] Bulk data
-### /api/v1/static/data/
 - [x] contributor stats

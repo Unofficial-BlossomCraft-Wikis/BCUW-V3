@@ -1,9 +1,6 @@
 import { defineConfig, squooshImageService } from "astro/config";
-import starlight from "@astrojs/starlight";
 import webmanifest from "astro-webmanifest";
 import tailwind from "@astrojs/tailwind";
-import starlightUtils from "@lorenzo_lewis/starlight-utils";
-import starlightLinksValidator from "starlight-links-validator";
 import netlify from "@astrojs/netlify";
 import sentry from "@sentry/astro";
 export const locales = {
@@ -27,132 +24,6 @@ const site =
 export default defineConfig({
   site,
   integrations: [
-    starlight({
-      credits: true,
-      favicon: "bcuwOnlyTitleSquare.png",
-      title: "BCUW",
-      social: {
-        github: "https://github.com/Unofficial-BlossomCraft-Wikis/BCUW",
-      },
-      editLink: {
-        baseUrl:
-          "https://github.com/Unofficial-BlossomCraft-Wikis/BCUW/edit/main/",
-      },
-      customCss: process.env.NO_GRADIENTS
-        ? ["./src/styles/main.css"]
-        : ["./src/styles/main.css", "./src/styles/landing.css"],
-      logo: {
-        src: "./src/assets/bcuwOnlyTitleNormal.png",
-        replacesTitle: true,
-      },
-      locales,
-      components: {
-        Head: "./src/components/Head.astro",
-        Sidebar: "./src/components/SideBar.astro",
-      },
-      lastUpdated: true,
-      sidebar: [
-        {
-          label: "Main",
-          items: [
-            {
-              label: "Starting",
-              items: [
-                {
-                  label: "Why and What?",
-                  link: "/starter/home/",
-                },
-                {
-                  label: "Resources",
-                  link: "/starter/resources/",
-                },
-                {
-                  label: "Discord Resources",
-                  link: "/starter/discordresources/",
-                },
-                {
-                  label: "Credits",
-                  link: "/starter/credits/",
-                },
-              ],
-            },
-            {
-              label: "Contributing",
-              items: [
-                {
-                  label: "Staff",
-                  link: "/contributing/staff/",
-                },
-                {
-                  label: "How to contribute",
-                  link: "/contributing/home/",
-                },
-                {
-                  label: "i18n Tracker",
-                  link: "/contributing/i18n/",
-                },
-                {
-                  label: "CDN",
-                  link: "/contributing/cdn/",
-                },
-                {
-                  label: "Logos",
-                  link: "/contributing/logos/",
-                },
-              ],
-            },
-            /* { Commented out for now, will be added back in later when the API is finished
-      label: 'Usefull things',
-      collapsed: true,
-      items: []
-      },*/
-          ],
-        },
-        {
-          label: "Crates",
-          collapsed: true,
-          items: [
-            {
-              label: "Season",
-              collapsed: true,
-              autogenerate: {
-                directory: "/crates/season",
-              },
-            },
-          ],
-        },
-        {
-          label: "Items",
-          collapsed: true,
-          autogenerate: {
-            directory: "/items/",
-          },
-        },
-      ],
-      head: [
-        {
-          tag: "meta",
-          attrs: {
-            property: "og:image",
-            content: site + "bcuwNoXYZTitleNormal.png",
-          },
-        },
-        {
-          tag: "meta",
-          attrs: {
-            property: "twitter:image",
-            content: site + "bcuwNoXYZTitleNormal.png",
-          },
-        },
-      ],
-      plugins: [
-        starlightUtils({
-          multiSidebar: true,
-          switcherStyle: "horizontalList",
-        }),
-        starlightLinksValidator(),
-      ],
-    }),
     webmanifest({
       name: "BCUW",
       icon: "./src/assets/bcuwOnlyTitleSquare.png",
@@ -165,6 +36,7 @@ export default defineConfig({
     }),
     tailwind({
       applyBaseStyles: false,
+      configFile: './tailwind.config.ts',
     }),
     // Use sentry fro the site
     sentry({
