@@ -13,13 +13,12 @@
 /* Custom styles */
 /* 
 Allow Chrome zero-js transitions
-Currently overridden by astro:transition
 */
-/* :root {
+:root {
   @view-transition {
     navigation: auto;
   }
-} */
+}
 
 /* Sidebar logo Styles */
 .bc_logo_link {
