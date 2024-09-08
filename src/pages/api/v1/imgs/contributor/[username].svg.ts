@@ -1,16 +1,7 @@
-export const prerender = true;
-import type {
-  InferStaticAPIRoute,
-  InferStaticContext,
-} from "../../../../../types";
 import {
   contributors,
 } from "../../../../../util/getContributors";
-
-export function getStaticPaths() {
-  return contributors.map(({ username }) => ({ params: { username } }));
-}
-export type Context = InferStaticContext<typeof getStaticPaths>;
+import type { APIRoute } from 'astro';
 
 const icons = {
   commits:
@@ -35,8 +26,7 @@ ${icons[type]}
   60 + i * 30
 }" y="40" text-anchor="middle">${count}</text>`;
 
-export async function getSvg(ctx: Context): Promise<string> {
-  const { username } = ctx.params;
+export async function getSvg(username: string): Promise<string> {
   const { stats, getBase64Avatar } = contributors.find(
     (c) => c.username === username
   )!;
@@ -76,8 +66,8 @@ export async function getSvg(ctx: Context): Promise<string> {
 </svg>`;
 }
 
-export const GET: InferStaticAPIRoute<typeof getStaticPaths> = async (ctx) => {
-  const body = await getSvg(ctx);
+export const GET: APIRoute = async ({ params, request }) => {
+  const body = await getSvg(params.username);
   return new Response(body, { headers: { "Content-Type": "image/svg+xml" } });
 };
 
