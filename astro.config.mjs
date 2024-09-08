@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig, sharpImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 import webmanifest from "astro-webmanifest";
 import tailwind from "@astrojs/tailwind";
@@ -28,6 +28,7 @@ export default defineConfig({
   site,
   integrations: [
     starlight({
+      prerender: false,
       credits: true,
       favicon: "bcuwOnlyTitleSquare.png",
       title: "BCUW",
@@ -179,7 +180,7 @@ export default defineConfig({
   ],
   // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
   image: {
-    service: squooshImageService(),
+    service: sharpImageService(),
   },
   output: "server",
   adapter: netlify({
