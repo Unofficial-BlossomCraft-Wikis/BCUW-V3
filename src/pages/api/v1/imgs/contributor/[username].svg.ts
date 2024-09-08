@@ -31,6 +31,7 @@ export async function getSvg(username: string): Promise<string> {
     (c) => c.username === username
   )!;
   const b64 = await getBase64Avatar();
+  console.log(stats);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 260 51" width="260" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" direction="ltr">
   <!--solid backdrop-->

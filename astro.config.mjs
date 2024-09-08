@@ -151,7 +151,6 @@ export default defineConfig({
           multiSidebar: true,
           switcherStyle: "horizontalList",
         }),
-        starlightLinksValidator(),
       ],
     }),
     webmanifest({
