@@ -3,7 +3,7 @@ import { getSvg } from "./[username].svg";
 import { APIRoute } from "astro";
 
 export const GET: APIRoute = async ({ params, request }) => {
-  const svg = await getSvg(params.username);
+  const svg = await getSvg(params.username!);
   const resvg = new Resvg(svg, {
     fitTo: { mode: "zoom", value: 1200 / 260 },
     font: {

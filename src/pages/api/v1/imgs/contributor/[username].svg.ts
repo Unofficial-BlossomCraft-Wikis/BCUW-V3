@@ -67,7 +67,7 @@ export async function getSvg(username: string): Promise<string> {
 }
 
 export const GET: APIRoute = async ({ params, request }) => {
-  const body = await getSvg(params.username);
+  const body = await getSvg(params.username!);
   return new Response(body, { headers: { "Content-Type": "image/svg+xml" } });
 };
 
