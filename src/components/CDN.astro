@@ -10,8 +10,8 @@ interface Props {
 const { path, name, ext, fileNameOverride } = Astro.props;
 
 const cleanedPath = path.replace(/^\/+|\/+$/g, '');
-
-const cleanedName = name.split(/[^a-zA-Z0-9]/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join('');
+let cleanedName = name.replace("'", '');
+cleanedName = cleanedName.split(/[^a-zA-Z0-9]/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join('');
 
 const url = `https://cdn.bcuw.xyz/${cleanedPath}/${fileNameOverride ? fileNameOverride : cleanedName}.${ext}`;
 ---
