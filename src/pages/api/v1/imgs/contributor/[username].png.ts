@@ -1,6 +1,6 @@
 import { Resvg } from "@resvg/resvg-js";
 import { getSvg } from "./[username].svg";
-import { APIRoute } from "astro";
+import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async ({ params, request }) => {
   const svg = await getSvg(params.username!);
