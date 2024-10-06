@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import webmanifest from "astro-webmanifest";
 import tailwind from "@astrojs/tailwind";
@@ -6,6 +6,7 @@ import starlightUtils from "@lorenzo_lewis/starlight-utils";
 import starlightLinksValidator from "starlight-links-validator";
 import netlify from "@astrojs/netlify";
 import sentry from "@sentry/astro";
+import react from "@astrojs/react";
 export const locales = {
   root: {
     label: "English",
@@ -20,8 +21,7 @@ const NETLIFY_PREVIEW_SITE =
   process.env.NETLIFY &&
   process.env.CONTEXT !== "production" &&
   process.env.DEPLOY_PRIME_URL;
-const site =
-  NETLIFY_PREVIEW_SITE || "https://www.bcuw.xyz/";
+const site = NETLIFY_PREVIEW_SITE || "https://www.bcuw.xyz/";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,6 +29,7 @@ export default defineConfig({
   integrations: [
     starlight({
       credits: true,
+      prerender: false,
       favicon: "bcuwOnlyTitleSquare.png",
       title: "BCUW",
       social: {
@@ -38,9 +39,10 @@ export default defineConfig({
         baseUrl:
           "https://github.com/Unofficial-BlossomCraft-Wikis/BCUW/edit/main/",
       },
-      customCss: process.env.NO_GRADIENTS
-        ? ["./src/styles/main.css"]
-        : ["./src/styles/main.css", "./src/styles/landing.css"],
+      customCss: [
+        "./src/styles/main.css",
+        "./src/styles/landing.css",
+      ],
       logo: {
         src: "./src/assets/bcuwOnlyTitleNormal.png",
         replacesTitle: true,
@@ -49,6 +51,7 @@ export default defineConfig({
       components: {
         Head: "./src/components/Head.astro",
         Sidebar: "./src/components/SideBar.astro",
+        Banner: "./src/components/Banner.astro",
       },
       lastUpdated: true,
       sidebar: [
@@ -166,7 +169,8 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    // Use sentry fro the site
+    react(),
+    // Use sentry for the site
     sentry({
       dsn: process.env.SENTRY_DSN,
       sourceMapsUploadOptions: {
@@ -177,10 +181,6 @@ export default defineConfig({
       replaysOnErrorSampleRate: 1.0,
     }),
   ],
-  // Process images with sharp: https://docs.astro.build/en/guides/assets/#using-sharp
-  image: {
-    service: squooshImageService(),
-  },
   output: "server",
   adapter: netlify({
     imageCDN: false,

@@ -1,0 +1,12 @@
+---
+import getBanner from "@/util/getBanner";
+const banner = await getBanner()
+let bannerLength = banner.length
+const hasBanner = bannerLength > 0
+---
+
+{
+  hasBanner && (
+    <> </>
+  )
+}
