@@ -3,7 +3,6 @@ import starlight from "@astrojs/starlight";
 import webmanifest from "astro-webmanifest";
 import tailwind from "@astrojs/tailwind";
 import starlightUtils from "@lorenzo_lewis/starlight-utils";
-import starlightLinksValidator from "starlight-links-validator";
 import netlify from "@astrojs/netlify";
 import sentry from "@sentry/astro";
 import react from "@astrojs/react";
@@ -39,10 +38,7 @@ export default defineConfig({
         baseUrl:
           "https://github.com/Unofficial-BlossomCraft-Wikis/BCUW/edit/main/",
       },
-      customCss: [
-        "./src/styles/main.css",
-        "./src/styles/landing.css",
-      ],
+      customCss: ["./src/styles/main.css", "./src/styles/landing.css"],
       logo: {
         src: "./src/assets/bcuwOnlyTitleNormal.png",
         replacesTitle: true,
@@ -153,7 +149,6 @@ export default defineConfig({
           multiSidebar: true,
           switcherStyle: "horizontalList",
         }),
-        starlightLinksValidator(),
       ],
     }),
     webmanifest({
