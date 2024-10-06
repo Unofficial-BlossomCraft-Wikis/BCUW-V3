@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import getBanner, { type bannerType } from "@/util/getBanner";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Countdown from 'react-countdown';
 
 export default function BannerReact() {
   const [currentBanner, setCurrentBanner] = useState(0);
@@ -133,6 +134,7 @@ export default function BannerReact() {
                       <p
                         dangerouslySetInnerHTML={{ __html: banner.description }}
                       ></p>
+                      <p>{banner.expiration? (<Countdown date={new Date(banner.expiration)} />) : null}</p>
                     </div>
                     <div style={{ flexBasis: "33.333333%" }}>
                       {banners.length > 1 && (
