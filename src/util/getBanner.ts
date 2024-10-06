@@ -21,7 +21,7 @@ type BannerResponseType = {
 
 export default async function getBanner() {
   const raw_data = await fetch(
-    "https://banners.bcuw.xyz/banner.json"
+    "https://banners.bcuw.xyz/banners.json"
   );
   const data: BannerResponseType = await raw_data.json();
 
