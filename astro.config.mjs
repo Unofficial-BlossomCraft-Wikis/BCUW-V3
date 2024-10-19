@@ -20,7 +20,7 @@ const NETLIFY_PREVIEW_SITE =
   process.env.NETLIFY &&
   process.env.CONTEXT !== "production" &&
   process.env.DEPLOY_PRIME_URL;
-const site = NETLIFY_PREVIEW_SITE || "https://www.bcuw.xyz/";
+const site = NETLIFY_PREVIEW_SITE || "https://v3.bcuw.xyz/";
 
 // https://astro.build/config
 export default defineConfig({
