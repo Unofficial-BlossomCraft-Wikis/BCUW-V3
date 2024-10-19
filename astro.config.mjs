@@ -152,9 +152,9 @@ export default defineConfig({
       ],
     }),
     webmanifest({
-      name: "BCUW",
+      name: "BCUW V3",
       icon: "./src/assets/bcuwOnlyTitleSquare.png",
-      short_name: "BCUW",
+      short_name: "BCUW V3",
       description: "The BlossomCraft Wiki that's run by players",
       start_url: "/",
       theme_color: "#E16FD6",
