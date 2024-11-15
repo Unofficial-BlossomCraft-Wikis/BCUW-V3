@@ -1,4 +1,5 @@
-# BCUW
+# BCUW v3
+# BCUW v3 has been deperecated on 11/15/2024
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)  
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
